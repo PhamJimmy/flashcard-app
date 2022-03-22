@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { listDecks } from "../utils/api";
 import DeckList from "./DeckList";
+import Study from "./Study";
+import NotFound from "../Layout/NotFound";
+import Error from "./Error";
 
 function Home() {
   const [decks, setDecks] = useState([]);
   const [error, setError] = useState(undefined);
-  
+
   useEffect(() => {
     const abortController = new AbortController();
     listDecks(abortController.signal).then(setDecks).catch(setError);
@@ -15,18 +18,20 @@ function Home() {
   }, []);
 
   return error ? (
-    <div className="error">
-      <h1>
-        Error: {error}
-        <Link to="/">Go Home</Link>
-      </h1>
-    </div>
+    <Error error={error} />
   ) : (
     <div className="home">
-      <button type="button" className="btn btn-secondary">
-        + Create Deck
-      </button>
-      <DeckList decks={decks} />
+      <Switch>
+        <Route exact path="/">
+          <DeckList decks={decks} />
+        </Route>
+        <Route path="/decks/:deckId/study">
+          <Study/>
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
     </div>
   );
 }
