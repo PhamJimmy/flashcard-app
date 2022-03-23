@@ -42,7 +42,7 @@ function Flashcard({ cards }) {
     <div className="card mb-2">
       <div className="card-body">
         <h5 className="card-title">Card {index + 1} of {cards.length}</h5>
-        <p className="card-text">{cards[index].front}</p>
+        <p className="card-text">{!flip ? cards[index].front : cards[index].back}</p>
         {buttons}
       </div>
     </div>
