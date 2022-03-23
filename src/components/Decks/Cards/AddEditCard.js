@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { createCard } from "../../../utils/api";
 import Breadcrumb from "../../Breadcrumb";
 
-function AddCard({ deck }) {
+function AddEditCard({ deck, addEdit, setAddEdit }) {
   const history = useHistory();
   
   const initialForm = {
@@ -71,4 +71,4 @@ function AddCard({ deck }) {
   );
 }
 
-export default AddCard;
+export default AddEditCard;

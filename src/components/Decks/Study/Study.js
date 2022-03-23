@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link} from "react-router-dom";
 
-import { readDeck } from "../../utils/api";
-import Breadcrumb from "../Breadcrumb";
-import Error from "../Error";
+import { readDeck } from "../../../utils/api";
+import Breadcrumb from "../../Breadcrumb";
+import Error from "../../Error";
 import Flashcard from "./Flashcard";
 
 
@@ -28,11 +28,11 @@ function Study() {
         <Flashcard cards={deck.cards} />
       ) : (
         <>
+          <h2>Not enough cards.</h2>
           <p>
-            You need at least 3 cards to study. There are {deck.cards.length}
-            cards in this deck.
+            You need at least 3 cards to study. There are {deck.cards.length} cards in this deck.
           </p>
-          <Link to={`/decks/${deckId}/cards/add`}
+          <Link to={`/decks/${deckId}/cards/new`}
             type="button"
             className="btn btn-primary"
           >

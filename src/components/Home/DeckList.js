@@ -8,7 +8,6 @@ import Error from "../Error";
 function DeckList() {
   const [decks, setDecks] = useState([]);
   const [error, setError] = useState(undefined);
-  const [deck, setDeck] = useState({});
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -16,7 +15,7 @@ function DeckList() {
     return () => abortController.abort();
   }, []);
 
-  const content = decks.map((deck) => <Deck key={deck.id} deck={deck} />);
+  const content = decks.map(deck => <Deck key={deck.id} deck={deck} />);
 
   return error ? (
     <Error error={error} />

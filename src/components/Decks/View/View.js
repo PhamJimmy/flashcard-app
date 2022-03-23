@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Switch, Route, useParams, useRouteMatch } from "react-router-dom";
 
-import { readDeck } from "../../utils/api";
-import Breadcrumb from "../Breadcrumb";
-import Error from "../Error";
-import AddCard from "./Cards/AddCard";
+import { readDeck } from "../../../utils/api";
+import Error from "../../Error";
+import AddEditCard from "../Cards/AddEditCard";
+import ViewDeck from "./ViewDeck";
 
 function View() {
   const { deckId } = useParams();
@@ -22,10 +22,12 @@ function View() {
 
   return (
     <>
-      <Breadcrumb deck={deck} />
       <Switch>
-        <Route path={`${path}/cards/add`}>
-          <AddCard deck={deck} />
+        <Route exact path={path}>
+          <ViewDeck deck={deck} />
+        </Route>
+        <Route path={`${path}/cards/new`}>
+          <AddEditCard deck={deck} />
         </Route>
       </Switch>
     </>

@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 
-import Study from "./Study";
-import View from "./View";
+import Study from "./Study/Study";
+import View from "./View/View";
 
 function Decks() {
   return (
