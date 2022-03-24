@@ -1,4 +1,7 @@
-function Card({ card }) {
+import { Link, useRouteMatch } from "react-router-dom";
+
+function Card({ card, handleDeleteCard }) {
+  const { url } = useRouteMatch();
 
   return (
     <div className="list-group-item">
@@ -7,10 +10,10 @@ function Card({ card }) {
         <p className="col">{card.back}</p>
       </div>
       <div className="d-flex justify-content-end">
-        <button type="button" className="btn btn-secondary mr-2">
+        <Link to={`${url}/cards/${card.id}/edit`} type="button" className="btn btn-secondary mr-2">
           Edit
-        </button>
-        <button type="button" className="btn btn-danger">
+        </Link>
+        <button type="button" className="btn btn-danger" onClick={handleDeleteCard} >
           Delete
         </button>
       </div>
