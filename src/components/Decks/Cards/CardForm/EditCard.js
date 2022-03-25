@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import { updateCard, readCard, readDeck } from "../../../utils/api";
-import Breadcrumb from "../../Breadcrumb";
-import Error from "../../Error";
+import { updateCard, readCard, readDeck } from "../../../../utils/api";
+import Breadcrumb from "../../../Breadcrumb";
+import Error from "../../../Error";
 import CardForm from "./CardForm";
 
 function EditCard() {
@@ -45,9 +45,9 @@ function EditCard() {
   }
 
   function handleSubmit() {
-    updateCard(form);
-    setForm(initialForm);
-    push(`/decks/${deckId}`);
+    updateCard(form)
+      .then(setForm(initialForm))
+      .then(push(`/decks/${deckId}`));
   }
 
   if (error) return <Error error={error} />;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
-import { deleteCard, readDeck } from "../../../utils/api";
+import { deleteCard, deleteDeck, readDeck } from "../../../utils/api";
 
 import Breadcrumb from "../../Breadcrumb";
 import Error from "../../Error";
@@ -11,9 +11,14 @@ function ViewDeck() {
   const [deck, setDeck] = useState({});
   const { url } = useRouteMatch();
   const { deckId } = useParams();
-  const { go } = useHistory();
+  const { go, push } = useHistory();
 
-  const handleDeleteDeck = () => {};
+  const handleDeleteDeck = () => {
+    if (window.confirm("Delete this deck?\n\nYou will not be able to recover it.")){
+      deleteDeck(deckId);
+      push("/");
+    }
+  };
 
   const handleDeleteCard = (cardId) => {
     if (window.confirm(`Delete this card?\n\nYou will not be able to recover it.`)) {

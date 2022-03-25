@@ -4,7 +4,7 @@ function Error({ error }) {
   return (
     <div className="error">
       <h1>
-        Error: {error}
+        Error: {error.message}
         <Link to="/">Go Home</Link>
       </h1>
     </div>

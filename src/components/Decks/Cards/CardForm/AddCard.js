@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import { createCard, readDeck } from "../../../utils/api";
-import Breadcrumb from "../../Breadcrumb";
-import Error from "../../Error";
+import { createCard, readDeck } from "../../../../utils/api";
+import Breadcrumb from "../../../Breadcrumb";
+import Error from "../../../Error";
 import CardForm from "./CardForm";
 
 function AddCard() {

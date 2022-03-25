@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Deck({ deck, setDeck }) {
+function Deck({ deck, setDeck, handleDelete }) {
 
   return (
     <div className="deck list-group-item">
@@ -28,7 +28,7 @@ function Deck({ deck, setDeck }) {
           </Link>
         </div>
         <div className="delete-button">
-          <button type="button" className="btn btn-danger">
+          <button type="button" className="btn btn-danger" onClick={handleDelete} >
             Delete
           </button>
         </div>
