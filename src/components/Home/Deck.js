@@ -15,21 +15,25 @@ function Deck({ deck, setDeck, handleDelete }) {
           <Link
             to={`decks/${deck.id}`}
             type="button"
-            className="btn btn-secondary mr-2"
+            className="btn btn-secondary bi bi-eye mr-2"
           >
-            View
+            <span className="ml-1">View</span>
           </Link>
           <Link
             to={`decks/${deck.id}/study`}
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary bi bi-book"
           >
-            Study
+            <span className="ml-1">Study</span>
           </Link>
         </div>
         <div className="delete-button">
-          <button type="button" className="btn btn-danger" onClick={handleDelete} >
-            Delete
+          <button
+            type="button"
+            className="btn btn-danger bi bi-trash"
+            onClick={handleDelete}
+          >
+            <span className="ml-1">Delete</span>
           </button>
         </div>
       </div>

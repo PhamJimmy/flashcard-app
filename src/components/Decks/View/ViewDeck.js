@@ -55,30 +55,34 @@ function ViewDeck() {
       <p>{deck.description}</p>
       <div className="d-flex justify-content-between">
         <div>
-          <Link to={`${url}/edit`} type="button" className="btn btn-secondary">
-            Edit
+          <Link
+            to={`${url}/edit`}
+            type="button"
+            className="btn btn-secondary bi bi-pencil-square"
+          >
+            <span className="ml-1">Edit</span>
           </Link>
           <Link
             to={`${url}/study`}
             type="button"
-            className="btn btn-primary mx-2"
+            className="btn btn-primary mx-2 bi bi-book"
           >
-            Study
+            <span className="ml-1">Study</span>
           </Link>
           <Link
             to={`${url}/cards/new`}
             type="button"
             className="btn btn-primary"
           >
-            Add Cards
+            + Add Cards
           </Link>
         </div>
         <button
           type="button"
-          className="btn btn-danger"
+          className="btn btn-danger bi bi-trash"
           onClick={handleDeleteDeck}
         >
-          Delete
+          <span className="ml-1">Delete</span>
         </button>
       </div>
       <h1 className="mt-3 list-group">Cards</h1>

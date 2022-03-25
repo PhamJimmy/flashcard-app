@@ -5,7 +5,9 @@ function Breadcrumb({ deck, createDeck=false, editDeck=false, study=false, addCa
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className="bi bi-house-door-fill">
+            <span className="ml-1">Home</span>
+          </NavLink>
         </li>
         {!createDeck ? (
           <li className="breadcrumb-item">

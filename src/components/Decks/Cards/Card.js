@@ -10,11 +10,19 @@ function Card({ card, handleDeleteCard }) {
         <p className="col">{card.back}</p>
       </div>
       <div className="d-flex justify-content-end">
-        <Link to={`${url}/cards/${card.id}/edit`} type="button" className="btn btn-secondary mr-2">
-          Edit
+        <Link
+          to={`${url}/cards/${card.id}/edit`}
+          type="button"
+          className="btn btn-secondary mr-2 bi bi-pencil-square"
+        >
+          <span className="ml-1">Edit</span>
         </Link>
-        <button type="button" className="btn btn-danger" onClick={handleDeleteCard} >
-          Delete
+        <button
+          type="button"
+          className="btn btn-danger bi bi-trash"
+          onClick={handleDeleteCard}
+        >
+          <span className="ml-1">Delete</span>
         </button>
       </div>
     </div>
