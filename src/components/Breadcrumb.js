@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Breadcrumb({ deck, createDeck=false, study=false, addCard=false, editCard=false, cardId }) {
+function Breadcrumb({ deck, createDeck=false, editDeck=false, study=false, addCard=false, editCard=false, cardId }) {
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -15,6 +15,7 @@ function Breadcrumb({ deck, createDeck=false, study=false, addCard=false, editCa
           <li className="breadcrumb-item">Create Deck</li>
         )}
         {!study || <li className="breadcrumb-item">Study</li>}
+        {!editDeck || <li className="breadcrumb-item">Edit Deck</li>}
         {!addCard || <li className="breadcrumb-item">Add Card</li>}
         {!editCard || <li className="breadcrumb-item">Edit Card {cardId}</li>}
       </ol>

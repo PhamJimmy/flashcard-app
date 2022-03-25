@@ -8,7 +8,6 @@ import CardForm from "./CardForm";
 
 function EditCard() {
   const [deck, setDeck] = useState({});
-  const [card, setCard] = useState({});
   const [error, setError] = useState(undefined);
   const { push } = useHistory();
   const { deckId, cardId } = useParams();
@@ -27,13 +26,9 @@ function EditCard() {
 
   useEffect(() => {
     const abortController = new AbortController();
-    readCard(cardId, abortController.signal).then(setCard).catch(setError);
+    readCard(cardId, abortController.signal).then(setForm).catch(setError);
     return () => abortController.abort();
   }, [cardId]);
-
-  useEffect(() => {
-    setForm(card);
-  }, [card])
 
   function handleChange({ target }) {
     setForm({ ...form, [target.name]: target.value });
@@ -52,7 +47,7 @@ function EditCard() {
 
   if (error) return <Error error={error} />;
 
-  return card ? (
+  return form ? (
     <>
       <Breadcrumb deck={deck} editCard={true} cardId={cardId} />
       <h1>Edit Card</h1>
