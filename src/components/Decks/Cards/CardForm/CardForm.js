@@ -18,7 +18,6 @@ function CardForm({ form, handleChange, handleDone, handleSave, handleCancel, ha
     </>
   ) : (
     <>
-    <>
       <button
         type="button"
         className="btn btn-secondary mr-2"
@@ -29,7 +28,6 @@ function CardForm({ form, handleChange, handleDone, handleSave, handleCancel, ha
       <button type="button" className="btn btn-primary" onClick={handleSubmit}>
         Submit
       </button>
-    </>
     </>
   );
 
